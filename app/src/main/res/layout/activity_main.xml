@@ -6,13 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    tools:targetApi="11">
+    tools:targetApi="11"
+    android:background="@drawable/aybu_black">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="For Announcements and News, long click on on an item list to open the corresponding link" />
+        android:text="Click on an item list to open the corresponding web page link."
+        android:textColor="#fff"/>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/simpleTabLayout"

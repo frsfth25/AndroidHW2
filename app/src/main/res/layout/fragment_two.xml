@@ -6,7 +6,9 @@
     <ListView
         android:id="@+id/lvContent"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:divider="#FFCC00"
+        android:dividerHeight="3sp">
 
     </ListView>
 

@@ -1,6 +1,8 @@
 package com.farisfath25.androidhw2;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -8,8 +10,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /*
@@ -31,7 +35,10 @@ Resources:
 - https://stackoverflow.com/questions/3221488/blur-or-dim-background-when-android-popupwindow-active?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 - https://stackoverflow.com/questions/18324555/android-copy-existing-project-with-new-name-in-android-studio?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 - https://stackoverflow.com/questions/31990372/remove-old-and-add-new-git-in-android-studio?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
- */
+- https://stackoverflow.com/questions/2372415/how-to-change-color-of-android-listview-separator-line?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+- https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html
+- http://www.gadgetsaint.com/tips/change-statusbar-color-android/#.WurckR6sa00
+*/
 
 @SuppressWarnings("ALL")
 public class MainActivity extends AppCompatActivity implements ConnectivityReceiver.ConnectivityReceiverListener {
@@ -55,19 +62,28 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
         // Create a new first Tab
         TabLayout.Tab firstTab = tabLayout.newTab();
         firstTab.setText("Food"); // set the Text for the first Tab
-        //firstTab.setIcon(R.drawable.ic_launcher_foreground); // set an icon for the first tab
+        firstTab.setIcon(R.drawable.icon_food); // set an icon for the first tab
+
+        //<div>Icons made by <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
         tabLayout.addTab(firstTab); // add  the tab at in the TabLayout
 
         // Create a new second Tab
         TabLayout.Tab secondTab = tabLayout.newTab();
         secondTab.setText("Announcements"); // set the Text for the second Tab
-        //secondTab.setIcon(R.drawable.ic_launcher_foreground); // set an icon for the second tab
+        secondTab.setIcon(R.drawable.icon_announce); // set an icon for the second tab
+
+        //<div>Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
         tabLayout.addTab(secondTab); // add  the tab  in the TabLayout
 
         // Create a new third Tab
         TabLayout.Tab thirdTab = tabLayout.newTab();
         thirdTab.setText("News"); // set the Text for the first Tab
-        //thirdTab.setIcon(R.drawable.ic_launcher_foreground); // set an icon for the first tab
+        thirdTab.setIcon(R.drawable.icon_news); // set an icon for the first tab
+
+        //<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
         tabLayout.addTab(thirdTab); // add  the tab at in the TabLayout
 
         // Manually check for the internet connection
@@ -186,6 +202,30 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
                 })
                 .setNegativeButton("No", null)
                 .show();
+    }
+
+    public void openSite(View v)
+    {
+        TextView tv= findViewById(R.id.txtView);
+
+        new AlertDialog.Builder(v.getContext())
+                .setMessage("Open the Food Menu page on your default browser?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    String url;
+                    Uri uri;
+                    Intent intent;
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        url = "https://www.ybu.edu.tr/sks";
+                        uri = Uri.parse(url);
+                        intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
+
     }
 
 }

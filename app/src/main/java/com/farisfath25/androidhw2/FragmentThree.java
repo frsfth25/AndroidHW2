@@ -51,9 +51,9 @@ public class FragmentThree extends Fragment {
         //elements added
         listView = v.findViewById(R.id.lvContent);
 
-        AdapterView.OnItemLongClickListener listener = new AdapterView.OnItemLongClickListener() {
+        AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int position, long id) {
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long id) {
 
                 final int index = position;
 
@@ -75,11 +75,11 @@ public class FragmentThree extends Fragment {
                         .setNegativeButton("No", null)
                         .show();
 
-                return false;
+                return;
             }
         };
 
-        listView.setOnItemLongClickListener(listener);
+        listView.setOnItemClickListener(listener);
 
         newsList = new ArrayList<>();
 
@@ -90,8 +90,8 @@ public class FragmentThree extends Fragment {
 
     private void getNews() {
         progressDialog = new ProgressDialog(v.getContext());
-        progressDialog.setMessage("Loading..."); // Setting Message
-        progressDialog.setTitle("Progress Dialog"); // Setting Title
+        progressDialog.setMessage("Fetching..."); // Setting Message
+        progressDialog.setTitle("News Data Progress"); // Setting Title
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
         progressDialog.show(); // Display Progress Dialog
         progressDialog.setCancelable(false);

@@ -1,6 +1,7 @@
 package com.farisfath25.androidhw2;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -37,6 +38,8 @@ public class FragmentOne extends Fragment {
         textView = v.findViewById(R.id.txtView);
 
         getFood();
+
+        //openSite(v);
 
         return v;
     }
@@ -79,4 +82,14 @@ public class FragmentOne extends Fragment {
     }
 
 
+ /*   public void openSite(View v)
+    {
+        TextView tv= v.findViewById(R.id.txtView);
+
+        //alter text of textview widget
+        tv.setText("This text view is clicked");
+
+        //assign the textview forecolor
+        tv.setTextColor(Color.GREEN);
+    } */
 }
